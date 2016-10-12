@@ -1,0 +1,44 @@
+
+<html>
+  <head>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script>
+    google.load("visualization", "1.1", {packages: ["corechart"]});
+    google.setOnLoadCallback(drawChart);
+
+
+    function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+            ['Attorney', 'Percent'],
+            ['Private Attorney', 25],
+            ['Public Defender', 35],
+            ['No Attorney', 39],
+        ]);
+
+        var options = {
+            is3D: true,
+            animation: {
+                duration: 1500,
+                startup: true,
+                
+            },
+            legend: {position: 'none'},
+            
+        };
+
+
+        chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+    }
+</script>
+</head>
+  <body>
+      <table>
+      
+      <div id="chart_div" class="chart" align="center" size="75%"></div>
+
+    </table>
+  </body>
+</html>
